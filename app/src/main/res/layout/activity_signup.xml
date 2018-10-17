@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".Signup">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="19dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+
+        <TextView
+            android:id="@+id/phonetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_phone"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_bg"
+            android:ems="12"
+            android:inputType="phone"
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/nametxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/enter_name"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_bg"
+            android:ems="12"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/addrtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/enter_address"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/addr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/edittext_bg"
+            android:ems="12"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/passtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/enter_password"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="5dp"
+            android:ems="12"
+            android:background="@drawable/edittext_bg"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/conpasstxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/confirm_password"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/conpassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:ems="12"
+            android:background="@drawable/edittext_bg"
+            android:inputType="textPassword" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:background="#397045"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        tools:ignore="ButtonStyle,HardcodedText" />
+
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Happy Fooding</string>
+    <string name="st">TODO</string>
+    <string name="slog">Your very own online food service!</string>
+    <string name="enter_phone">Enter Phone</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="confirm_password">Confirm Password</string>
+
+</resources>

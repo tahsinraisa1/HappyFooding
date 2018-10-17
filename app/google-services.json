@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "234208426737",
+    "firebase_url": "https://happyfooding-524c7.firebaseio.com",
+    "project_id": "happyfooding-524c7",
+    "storage_bucket": "happyfooding-524c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234208426737:android:b7d53de47cb54565",
+        "android_client_info": {
+          "package_name": "com.example.hp.happyfooding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234208426737-t5qdf1eqtn3qfu8pjcoarbcggiivpd8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.happyfooding",
+            "certificate_hash": "5e680ac0478ec74072d4301cfaec8984f655b8a9"
+          }
+        },
+        {
+          "client_id": "234208426737-3o9cc16tqnl3236p1496vpooum8tfm0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsLCI8GeGzIGY3UjF3ErdBFFv18Kd-tY4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234208426737-3o9cc16tqnl3236p1496vpooum8tfm0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
