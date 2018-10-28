@@ -7,5 +7,9 @@
     <string name="enter_name">Enter Name</string>
     <string name="enter_address">Enter Address</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="_880">+88</string>
+    <string name="enter_verification_code">Enter Verification Code</string>
+    <string name="conf">Confirm</string>
+    <string name="resend_code">Resend Code</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.hp.happyfooding;
 
 import android.app.ProgressDialog;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,28 +42,39 @@ public class Signin extends AppCompatActivity {
 
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.child(phone.getText().toString()).exists()){
-                            mDialog.dismiss();
-                            User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
-                            if (user != null) {
-                                if(user.getPassword().equals(password.getText().toString())){
-                                    Toast.makeText(Signin.this, "Successful sign in!", Toast.LENGTH_SHORT).show();
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(!phone.getText().toString().isEmpty()) {
+                            if (dataSnapshot.child(phone.getText().toString()).exists()) {
+                                mDialog.dismiss();
+                                User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
+                                if(password.getText().toString().isEmpty()){
+                                    Toast.makeText(Signin.this, "Please enter Password!", Toast.LENGTH_SHORT).show();
+
                                 }
                                 else {
-                                    Toast.makeText(Signin.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
+                                    if (user == null) {
+                                        throw new AssertionError();
+                                    }
+                                    if (user.getPassword().equals(password.getText().toString())) {
+                                        Toast.makeText(Signin.this, "Welcome " + user.getName(), Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(Signin.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
+                            } else {
+                                mDialog.dismiss();
+                                Toast.makeText(Signin.this, "User does not exist!", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else {
                             mDialog.dismiss();
-                            Toast.makeText(Signin.this, "User does not exist!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signin.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
                         }
                         }
 
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
                 });

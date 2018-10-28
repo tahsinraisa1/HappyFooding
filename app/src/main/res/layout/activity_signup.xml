@@ -12,6 +12,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="19dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -24,16 +26,39 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="28sp" />
 
-        <EditText
-            android:id="@+id/phone"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/edittext_bg"
-            android:ems="12"
-            android:inputType="phone"
-            android:textColor="@android:color/white"
-            tools:ignore="LabelFor" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/phone1"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_bg"
+                android:paddingStart="5dp"
+                android:paddingTop="7dp"
+                android:text="@string/_880"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_bg"
+                android:ems="25"
+                android:textSize="20sp"
+                android:inputType="phone"
+                android:paddingStart="5dp"
+                android:textColor="@android:color/white"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/nametxt"
@@ -52,7 +77,8 @@
             android:background="@drawable/edittext_bg"
             android:ems="12"
             android:inputType="textPersonName"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/addrtxt"
@@ -71,7 +97,8 @@
             android:textColor="@android:color/white"
             android:background="@drawable/edittext_bg"
             android:ems="12"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/passtxt"
@@ -90,7 +117,8 @@
             android:layout_marginTop="5dp"
             android:ems="12"
             android:background="@drawable/edittext_bg"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/conpasstxt"
@@ -109,7 +137,8 @@
             android:textColor="@android:color/white"
             android:ems="12"
             android:background="@drawable/edittext_bg"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
