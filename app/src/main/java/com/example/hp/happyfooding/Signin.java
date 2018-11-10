@@ -1,6 +1,7 @@
 package com.example.hp.happyfooding;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import Common.Common;
 import Model.User;
 
 public class Signin extends AppCompatActivity {
@@ -48,7 +50,8 @@ public class Signin extends AppCompatActivity {
                                 mDialog.dismiss();
                                 User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
                                 if(password.getText().toString().isEmpty()){
-                                    Toast.makeText(Signin.this, "Please enter Password!", Toast.LENGTH_SHORT).show();
+                                    password.setError("Enter password!");
+                                    password.requestFocus();
 
                                 }
                                 else {
@@ -56,9 +59,14 @@ public class Signin extends AppCompatActivity {
                                         throw new AssertionError();
                                     }
                                     if (user.getPassword().equals(password.getText().toString())) {
-                                        Toast.makeText(Signin.this, "Welcome " + user.getName(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Signin.this, "Welcome "+user.getName(), Toast.LENGTH_SHORT).show();
+                                        Common.currentUser = user;
+                                        Intent homeIntent = new Intent(Signin.this, UProfile.class);
+                                        startActivity(homeIntent);
+                                        finish();
                                     } else {
-                                        Toast.makeText(Signin.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
+                                        password.setError("Incorrect password!");
+                                        password.requestFocus();
                                     }
                                 }
                             } else {

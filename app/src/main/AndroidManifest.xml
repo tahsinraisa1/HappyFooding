@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:fullBackupContent="true"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -21,6 +21,13 @@
         </activity>
         <activity android:name=".Signin" />
         <activity android:name=".Signup" />
+        <activity android:name=".VeriCode" />
+        <activity
+            android:name=".UProfile"
+            android:label="@string/title_activity_uprofile"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FoodList" />
+        <activity android:name=".FoodDetail"></activity>
     </application>
 
 </manifest>
