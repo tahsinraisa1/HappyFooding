@@ -1,17 +1,17 @@
 package Model;
 
 public class Food {
-    private String Name, Image, Price, Description, MenuId;
+    private String Name, Image, Price, Description, MmenuId;
 
     public Food() {
     }
 
-    public Food(String name, String image, String price, String description, String menuId) {
+    public Food(String name, String image, String price, String description, String MenuId) {
         Name = name;
         Image = image;
         Price = price;
         Description = description;
-        MenuId = menuId;
+        MmenuId = MenuId;
     }
 
     public String getName() {
@@ -47,10 +47,10 @@ public class Food {
     }
 
     public String getMenuId() {
-        return MenuId;
+        return MmenuId;
     }
 
-    public void setMenuId(String menuId) {
-        MenuId = menuId;
+    public void setMenuId(String mmenuId) {
+        MmenuId = mmenuId;
     }
 }

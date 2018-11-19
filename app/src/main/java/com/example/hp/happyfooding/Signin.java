@@ -49,6 +49,7 @@ public class Signin extends AppCompatActivity {
                             if (dataSnapshot.child(phone.getText().toString()).exists()) {
                                 mDialog.dismiss();
                                 User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
+                                user.setPhone(phone.getText().toString());
                                 if(password.getText().toString().isEmpty()){
                                     password.setError("Enter password!");
                                     password.requestFocus();
@@ -61,9 +62,16 @@ public class Signin extends AppCompatActivity {
                                     if (user.getPassword().equals(password.getText().toString())) {
                                         Toast.makeText(Signin.this, "Welcome "+user.getName(), Toast.LENGTH_SHORT).show();
                                         Common.currentUser = user;
-                                        Intent homeIntent = new Intent(Signin.this, UProfile.class);
-                                        startActivity(homeIntent);
-                                        finish();
+                                        if(phone.getText().toString().equals("01748535404")){
+                                            Intent homeIntent = new Intent(Signin.this, AdminHome.class);
+                                            startActivity(homeIntent);
+                                            finish();
+                                        }
+                                        else {
+                                            Intent homeIntent = new Intent(Signin.this, UProfile.class);
+                                            startActivity(homeIntent);
+                                            finish();
+                                        }
                                     } else {
                                         password.setError("Incorrect password!");
                                         password.requestFocus();

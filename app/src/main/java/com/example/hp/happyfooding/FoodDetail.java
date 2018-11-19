@@ -5,10 +5,13 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.hp.happyfooding.Database.Database;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import Model.Food;
+import Model.Order;
 
 public class FoodDetail extends AppCompatActivity {
     TextView foodname, foodprice, fooddesc;
@@ -29,6 +33,7 @@ public class FoodDetail extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference food;
+    Food currentFood;
 
 
     @Override
@@ -44,6 +49,20 @@ public class FoodDetail extends AppCompatActivity {
         fooddesc = findViewById(R.id.food_description);
         foodprice = findViewById(R.id.food_price);
         foodimg = findViewById(R.id.img_food);
+        btnCart = findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Database(getBaseContext()).addToCart(new Order(
+                        foodId,
+                        currentFood.getName(),
+                        numberButton.getNumber(),
+                        currentFood.getPrice()
+                ));
+                Toast.makeText(FoodDetail.this, "Added to cart.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         collapsingToolbarLayout = findViewById(R.id.collapsing);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
@@ -60,13 +79,13 @@ public class FoodDetail extends AppCompatActivity {
         food.child(foodId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Food food = dataSnapshot.getValue(Food.class);
-                assert food != null;
-                Picasso.with(getBaseContext()).load(food.getImage()).into(foodimg);
-                collapsingToolbarLayout.setTitle(food.getName());
-                foodprice.setText(food.getPrice());
-                fooddesc.setText(food.getDescription());
-                foodname.setText(food.getName());
+                currentFood = dataSnapshot.getValue(Food.class);
+                assert currentFood != null;
+                Picasso.with(getBaseContext()).load(currentFood.getImage()).into(foodimg);
+                collapsingToolbarLayout.setTitle(currentFood.getName());
+                foodprice.setText(currentFood.getPrice());
+                fooddesc.setText(currentFood.getDescription());
+                foodname.setText(currentFood.getName());
 
             }
 

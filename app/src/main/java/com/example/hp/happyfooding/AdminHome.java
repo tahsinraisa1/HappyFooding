@@ -95,7 +95,7 @@ public class AdminHome extends AppCompatActivity
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
         foodList = database.getReference("Food");
-        
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

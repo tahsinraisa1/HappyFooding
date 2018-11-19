@@ -27,7 +27,13 @@
             android:label="@string/title_activity_uprofile"
             android:theme="@style/AppTheme" />
         <activity android:name=".FoodList" />
-        <activity android:name=".FoodDetail"></activity>
+        <activity android:name=".FoodDetail" />
+        <activity android:name=".Cart" />
+        <activity android:name=".OrderStatus" />
+        <activity
+            android:name=".AdminHome"
+            android:label="@string/title_activity_admin_home"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

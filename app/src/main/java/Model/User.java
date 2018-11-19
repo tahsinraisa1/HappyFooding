@@ -1,6 +1,7 @@
 package Model;
 
 public class User {
+    private String Phone;
     private String Name;
     private String Password;
     private String Conpass;
@@ -9,11 +10,19 @@ public class User {
     public User() {
     }
 
-    public User(String name, String address, String password, String conpass) {
+    public User(String name, String password, String conpass, String address) {
         Name = name;
         Password = password;
         Conpass = conpass;
         Address = address;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getName() {

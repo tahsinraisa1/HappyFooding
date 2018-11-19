@@ -35,12 +35,12 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="112dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="275dp"
             android:text="@string/slog"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="20sp" />
+            android:textSize="28sp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

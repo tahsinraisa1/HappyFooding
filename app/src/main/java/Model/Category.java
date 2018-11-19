@@ -3,15 +3,17 @@ package Model;
 public class Category {
     private String Name;
     private String Image;
-    private String Price;
 
     public Category() {
     }
 
-    public Category(String name, String image, String price) {
+    public Category(String name, String image) {
         this.Name = name;
         this.Image = image;
-        this.Price = price;
+    }
+
+    public Category(String name) {
+        Name = name;
     }
 
     public String getName() {
