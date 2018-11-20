@@ -4,12 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import Common.Common;
+import Interface.ItemClickListener;
+import Model.Order;
 import Model.Request;
 import ViewHolder.OrderViewHolder;
 
@@ -34,7 +38,13 @@ public class OrderStatus extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrders(Common.currentUser.getPhone());
+        if(getIntent().getExtras() == null){
+            loadOrders(Common.currentUser.getPhone());
+        }
+        else {
+            loadOrders(getIntent().getStringExtra("userPhone"));
+        }
+
     }
 
     private void loadOrders(String phone) {
@@ -51,6 +61,13 @@ public class OrderStatus extends AppCompatActivity {
                 viewHolder.order_id.setText(adapter.getRef(position).getKey());
                 viewHolder.order_status.setText(convertCodeToStatus(model.getStatus()));
                 viewHolder.order_addr.setText(model.getAddr());
+
+                viewHolder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+
+                    }
+                });
 
             }
         };

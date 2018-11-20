@@ -33,7 +33,13 @@
         <activity
             android:name=".AdminHome"
             android:label="@string/title_activity_admin_home"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AdminOrderStatus" />
+
+        <service
+            android:name="service.ListenOrder"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

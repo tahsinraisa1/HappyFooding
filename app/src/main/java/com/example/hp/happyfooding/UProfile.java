@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.style.UpdateAppearance;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -38,6 +36,7 @@ import Common.Common;
 import Interface.ItemClickListener;
 import Model.Category;
 import Model.Food;
+import service.ListenOrder;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.MenuViewHolder;
 
@@ -144,6 +143,8 @@ public class UProfile extends AppCompatActivity
         });
 
         loadMenu();
+        Intent service = new Intent(UProfile.this, ListenOrder.class);
+        startService(service);
     }
 
     private void startSearch(CharSequence text) {

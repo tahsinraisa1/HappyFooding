@@ -1,25 +1,15 @@
 package com.example.hp.happyfooding;
 
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.CharArrayBuffer;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.DataSetObserver;
-import android.icu.text.SelectFormat;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.style.UpdateAppearance;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -36,31 +26,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hp.happyfooding.Database.Database;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
 
 import Common.Common;
 import Interface.ItemClickListener;
-import Model.Category;
-import Model.F1;
 import Model.Food;
-import Model.Order;
-import Model.Request;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.AdMenuViewHolder;
 
@@ -215,8 +195,7 @@ public class AdminHome extends AppCompatActivity
                     public void onClick(final View v) {
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(AdminHome.this);
                         alertDialog.setTitle("Confirm Deletion");
-                        alertDialog.setMessage("Are you sure you want to delete this category?" +
-                                "(All foods of this category will be deleted!)");
+                        alertDialog.setMessage("Are you sure you want to delete this food?");
 
                         alertDialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
@@ -374,8 +353,8 @@ public class AdminHome extends AppCompatActivity
             Intent cartIntent = new Intent(AdminHome.this, Cart.class);
             startActivity(cartIntent);
 
-        } else if (id == R.id.nav_orders) {
-            Intent orderIntent = new Intent(AdminHome.this, OrderStatus.class);
+        } else if (id == R.id.ad_order) {
+            Intent orderIntent = new Intent(AdminHome.this, AdminOrderStatus.class);
             startActivity(orderIntent);
 
         } else if (id == R.id.nav_signout) {
