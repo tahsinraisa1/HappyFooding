@@ -1,6 +1,7 @@
 package com.example.hp.happyfooding;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +56,7 @@ public class AdminOrderStatus extends AppCompatActivity {
                 requests
         ) {
             @Override
-            protected void populateViewHolder(AdOrderViewHolder viewHolder, Request model, int position) {
+            protected void populateViewHolder(AdOrderViewHolder viewHolder, final Request model, int position) {
                 viewHolder.order_id.setText(adapter.getRef(position).getKey());
                 viewHolder.order_status.setText(Common.convertCodeToStatus(model.getStatus()));
                 viewHolder.order_addr.setText(model.getAddr());
@@ -65,7 +66,9 @@ public class AdminOrderStatus extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-
+                        Intent trackingOrder = new Intent(AdminOrderStatus.this, AdminTrackingOrder.class);
+                        Common.currentRequest = model;
+                        startActivity(trackingOrder);
                     }
                 });
             }
