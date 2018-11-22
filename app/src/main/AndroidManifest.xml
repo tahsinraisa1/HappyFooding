@@ -61,7 +61,8 @@
 
         <activity
             android:name=".AdminTrackingOrder"
-            android:label="@string/title_activity_admin_tracking_order"></activity>
+            android:label="@string/title_activity_admin_tracking_order" />
+        <activity android:name=".PayPage"></activity>
     </application>
 
 </manifest>

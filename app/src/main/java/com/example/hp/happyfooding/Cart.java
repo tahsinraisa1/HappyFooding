@@ -1,6 +1,8 @@
 package com.example.hp.happyfooding;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import com.example.hp.happyfooding.Database.Database;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,17 +110,16 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(!editAddress.getText().toString().isEmpty()){
-                    Request request = new Request(
-                            Common.currentUser.getPhone(),
-                            Common.currentUser.getName(),
-                            editAddress.getText().toString(),
-                            txtTotalPrice.getText().toString(),
-                            cart
-                    );
-                    requests.child(String.valueOf(System.currentTimeMillis()))
-                            .setValue(request);
                     new Database(getBaseContext()).cleanCart();
-                    Toast.makeText(Cart.this,"Thank you, order Placed!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Cart.this,"Thank you, order Placed!", Toast.LENGTH_SHORT).show();
+                    Intent pay = new Intent(Cart.this, PayPage.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList("cart", (ArrayList<? extends Parcelable>) cart);
+                    pay.putExtra("address", editAddress.getText().toString());
+                    pay.putExtra("price", txtTotalPrice.getText().toString());
+                    pay.putExtras(bundle);
+
+                    startActivity(pay);
                     finish();
                 }
                 else {
