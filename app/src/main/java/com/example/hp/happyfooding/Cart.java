@@ -73,23 +73,23 @@ public class Cart extends AppCompatActivity {
         cart = new Database(this).getCarts();
         adapter = new CartAdapter(cart, this);
         recyclerView.setAdapter(adapter);
+        final int[] total = {0};
+        for(Order order:cart)
+            total[0] +=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
+
+        txtTotalPrice.setText(Integer.toString(total[0]));
         adapter.setOnItemClickListener(new CartAdapter.OnItemClickListener() {
             @Override
             public void onDeleteClick(int position) {
                 String id = cart.get(position).getProductId();
+                int p = (Integer.parseInt(cart.get(position).getPrice()))*(Integer.parseInt(cart.get(position).getQuantity()));
                 new Database(getBaseContext()).oneClean(id);
                 cart.remove(position);
+                total[0] -=p;
+                txtTotalPrice.setText(Integer.toString(total[0]));
                 adapter.notifyItemRemoved(position);
             }
         });
-
-
-        int total =0;
-        for(Order order:cart)
-            total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
-
-        txtTotalPrice.setText(Integer.toString(total));
-
     }
 
     private void showAlertDialog(){

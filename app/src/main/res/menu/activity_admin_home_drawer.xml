@@ -9,9 +9,9 @@
             android:icon="@drawable/ic_access_time_black_24dp"
             android:title="Orders" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_adchat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="Live chat with users" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"

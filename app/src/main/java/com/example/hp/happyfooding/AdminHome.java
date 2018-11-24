@@ -43,6 +43,7 @@ import Interface.ItemClickListener;
 import Model.Food;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.AdMenuViewHolder;
+import io.smooch.ui.ConversationActivity;
 
 public class AdminHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -357,6 +358,8 @@ public class AdminHome extends AppCompatActivity
             Intent orderIntent = new Intent(AdminHome.this, AdminOrderStatus.class);
             startActivity(orderIntent);
 
+        } else if(id == R.id.nav_adchat){
+            ConversationActivity.show(AdminHome.this);
         } else if (id == R.id.nav_signout) {
             Intent signIn = new Intent(AdminHome.this, Signin.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

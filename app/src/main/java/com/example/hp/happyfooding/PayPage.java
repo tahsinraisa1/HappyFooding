@@ -120,7 +120,7 @@ public class PayPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(PayPage.this);
-                builder1.setMessage("Please send the food purchase cost to the following bKash number: 01643209377 and proceed after receiving Txn. ID.");
+                builder1.setMessage("Please send the food purchase cost to the following bKash number: 01643209377 and proceed after receiving Trx. ID.");
                 builder1.setCancelable(true);
 
                 builder1.setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
@@ -143,7 +143,7 @@ public class PayPage extends AppCompatActivity {
                                         Toast.makeText(PayPage.this, "Enter the correct amount!", Toast.LENGTH_SHORT).show();
                                     }
                                     else if(tid.getText().toString().length()!=9){
-                                        Toast.makeText(PayPage.this, "Enter valid Txn. Id!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PayPage.this, "Enter valid Trx. Id!", Toast.LENGTH_SHORT).show();
                                     }
                                     else {
                                         Request request = new Request(

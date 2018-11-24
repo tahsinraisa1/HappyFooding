@@ -35,6 +35,8 @@ import java.util.concurrent.TimeUnit;
 
 import Common.Common;
 import Model.User;
+import io.smooch.core.Settings;
+import io.smooch.core.Smooch;
 
 public class VeriCode extends AppCompatActivity {
     private String verificationId;

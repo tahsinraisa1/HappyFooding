@@ -36,9 +36,12 @@ import Common.Common;
 import Interface.ItemClickListener;
 import Model.Category;
 import Model.Food;
+import io.smooch.core.Smooch;
+import io.smooch.ui.ConversationActivity;
 import service.ListenOrder;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.MenuViewHolder;
+
 
 public class UProfile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,6 +61,7 @@ public class UProfile extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uprofile);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Your account");
         setSupportActionBar(toolbar);
@@ -249,6 +253,10 @@ public class UProfile extends AppCompatActivity
         } else if (id == R.id.nav_orders) {
             Intent orderIntent = new Intent(UProfile.this, OrderStatus.class);
             startActivity(orderIntent);
+
+        }
+        else if(id == R.id.nav_livechat){
+            ConversationActivity.show(UProfile.this);
 
         } else if (id == R.id.nav_signout) {
             Intent signIn = new Intent(UProfile.this, Signin.class);
