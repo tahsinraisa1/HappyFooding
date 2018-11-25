@@ -3,13 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:layout_margin="8dp"
-    app:cardElevation="4dp">
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="258dp"
+        android:layout_height="510dp"
         android:layout_gravity="center_vertical"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
@@ -23,54 +22,58 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:textSize="20sp"
                     android:text="Order Id:"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_id"
                     android:layout_width="match_parent"
-                    android:layout_height="37dp"
+                    android:layout_height="84dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="#3232323"
                     android:textAllCaps="true"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="80dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:textSize="20sp"
                     android:text="User phone no.:"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="79dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="12434354346"
                     android:textAllCaps="true"
+                    android:textSize="20sp"
                     android:textStyle="italic" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="84dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -78,64 +81,69 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:text="User name:"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_name"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="87dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="12434354346"
                     android:textAllCaps="true"
+                    android:textSize="20sp"
                     android:textStyle="italic" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="74dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:textSize="20sp"
                     android:text="Order status:"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_status"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="76dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="Status"
                     android:textAllCaps="true"
+                    android:textSize="20sp"
                     android:textStyle="italic" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
+                android:layout_height="158dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="Shipping address:"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_addr"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="145dp"
                     android:layout_gravity="center_vertical|start"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:text="Address"
-                    android:textAllCaps="true"
+                    android:textSize="20sp"
                     android:textStyle="italic" />
 
 

@@ -24,7 +24,7 @@ public class AdOrderViewHolder extends RecyclerView.ViewHolder implements View.O
         order_status = itemView.findViewById(R.id.order_status);
         order_addr = itemView.findViewById(R.id.order_addr);
         order_name = itemView.findViewById(R.id.order_name);
-        getloc = itemView.findViewById(R.id.getloc);
+      //  getloc = itemView.findViewById(R.id.getloc);
 
         itemView.setOnClickListener(this);
         itemView.setOnCreateContextMenuListener(this);
