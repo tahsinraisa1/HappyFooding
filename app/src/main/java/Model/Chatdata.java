@@ -1,20 +1,20 @@
 package Model;
 
-public class ChatData extends User {
+public class Chatdata {
 
     private String mDate;
     private String mId;
     private String mMessage;
     private String mName;
 
-    public ChatData(String mDate, String mId, String mMessage, String mName) {
+    public Chatdata(String mDate, String mId, String mMessage, String mName) {
         this.mDate = mDate;
         this.mId = mId;
         this.mMessage = mMessage;
         this.mName = mName;
     }
 
-    public ChatData() {
+    public Chatdata() {
     }
 
     public String getDate() {

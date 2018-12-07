@@ -6,7 +6,6 @@ public class User {
     private String Password;
     private String Conpass;
     private String Address;
-    private ChatData chat;
 
     public User() {
     }
@@ -16,14 +15,6 @@ public class User {
         Password = password;
         Conpass = conpass;
         Address = address;
-    }
-
-    public ChatData getChat() {
-        return chat;
-    }
-
-    public void setChat(ChatData chat) {
-        this.chat = chat;
     }
 
     public String getPhone() {
@@ -40,10 +31,6 @@ public class User {
 
     public String getConpass() {
         return Conpass;
-    }
-
-    public User(ChatData chatData) {
-        this.chat = chatData;
     }
 
     public void setConpass(String conpass) {

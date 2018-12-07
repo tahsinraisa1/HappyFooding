@@ -7,19 +7,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 
 import Interface.ItemClickListener;
-import Model.ChatData;
-import Model.Food;
 import Model.User;
-import ViewHolder.FoodViewHolder;
 import ViewHolder.UViewHolder;
 
 public class AdminChatlist extends AppCompatActivity {
