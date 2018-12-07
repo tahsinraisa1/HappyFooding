@@ -43,7 +43,6 @@ import Interface.ItemClickListener;
 import Model.Food;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.AdMenuViewHolder;
-import io.smooch.ui.ConversationActivity;
 
 public class AdminHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -203,7 +202,7 @@ public class AdminHome extends AppCompatActivity
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String key = adapter.getRef(position).getKey();
                                 foodList.child(key).removeValue();
-                                Toast.makeText(AdminHome.this,"Category deleted!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminHome.this,"Food deleted!", Toast.LENGTH_SHORT).show();
                             }
                         });
                         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -359,7 +358,8 @@ public class AdminHome extends AppCompatActivity
             startActivity(orderIntent);
 
         } else if(id == R.id.nav_adchat){
-            ConversationActivity.show(AdminHome.this);
+            Intent cl = new Intent(AdminHome.this, AdminChatlist.class);
+            startActivity(cl);
         } else if (id == R.id.nav_signout) {
             Intent signIn = new Intent(AdminHome.this, Signin.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

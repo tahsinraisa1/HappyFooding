@@ -36,8 +36,6 @@ import Common.Common;
 import Interface.ItemClickListener;
 import Model.Category;
 import Model.Food;
-import io.smooch.core.Smooch;
-import io.smooch.ui.ConversationActivity;
 import service.ListenOrder;
 import ViewHolder.FoodViewHolder;
 import ViewHolder.MenuViewHolder;
@@ -156,7 +154,7 @@ public class UProfile extends AppCompatActivity
                 Food.class,
                 R.layout.food_item,
                 FoodViewHolder.class,
-                foodList.orderByChild("Name").equalTo(text.toString())
+                foodList.orderByChild("name").equalTo(text.toString())
         ) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
@@ -178,7 +176,7 @@ public class UProfile extends AppCompatActivity
     }
 
     private void loadSuggest() {
-        foodList.orderByChild("MenuId")
+        foodList.orderByChild("menuId")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -256,7 +254,8 @@ public class UProfile extends AppCompatActivity
 
         }
         else if(id == R.id.nav_livechat){
-            ConversationActivity.show(UProfile.this);
+            Intent chat = new Intent(UProfile.this, ChatFragment.class);
+            startActivity(chat);
 
         } else if (id == R.id.nav_signout) {
             Intent signIn = new Intent(UProfile.this, Signin.class);

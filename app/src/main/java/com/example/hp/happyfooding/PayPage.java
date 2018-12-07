@@ -29,6 +29,7 @@ public class PayPage extends AppCompatActivity {
     LayoutInflater inflater;
     String addr, tprice;
     List<Order> ccart;
+    List<Order> cart = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference requests;
 

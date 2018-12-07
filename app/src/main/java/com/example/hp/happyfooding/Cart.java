@@ -58,12 +58,18 @@ public class Cart extends AppCompatActivity {
 
         txtTotalPrice = findViewById(R.id.total);
         btnplace = findViewById(R.id.btnPlaceOrder);
+        loadListFood();
 
         btnplace.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view){
-                showAlertDialog();
+                if(Integer.parseInt(txtTotalPrice.getText().toString()) > 0){
+                    showAlertDialog();
+                }
+                else {
+                    Toast.makeText(Cart.this, "Not a valid order!" , Toast.LENGTH_LONG).show();
+                }
             }
         });
         loadListFood();

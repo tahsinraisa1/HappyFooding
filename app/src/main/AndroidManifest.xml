@@ -19,7 +19,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".CustomUiApp"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -87,7 +86,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".OrderPageAd"></activity>
+        <activity android:name=".OrderPageAd" />
+        <activity android:name=".ChatFragment" />
+        <activity android:name=".AdminChatlist"/>
+        <activity android:name=".AdChatFragment"/>
     </application>
 
 </manifest>

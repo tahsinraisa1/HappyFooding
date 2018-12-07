@@ -6,7 +6,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.hp.happyfooding"
-        minSdkVersion 21
+        minSdkVersion 22
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -51,8 +51,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.squareup.okhttp:okhttp:2.4.0'
-    implementation 'io.smooch:core:latest.release'
-    implementation 'io.smooch:ui:latest.release'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

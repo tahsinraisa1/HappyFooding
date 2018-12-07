@@ -115,7 +115,7 @@ public class FoodList extends AppCompatActivity {
                 Food.class,
                 R.layout.food_item,
                 FoodViewHolder.class,
-                foodList.orderByChild("Name").equalTo(text.toString())
+                foodList.orderByChild("name").equalTo(text.toString())
         ) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
@@ -137,7 +137,7 @@ public class FoodList extends AppCompatActivity {
     }
 
     private void loadSuggest() {
-        foodList.orderByChild("MenuId").equalTo(categoryId)
+        foodList.orderByChild("menuId").equalTo(categoryId)
                 .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

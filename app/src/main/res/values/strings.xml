@@ -21,6 +21,8 @@
     <string name="food_name">Food Name</string>
     <string name="title_activity_admin_home">AdminHome</string>
     <string name="title_activity_admin_tracking_order">AdminTrackingOrder</string>
+    <string name="chat_input">Enter message here!</string>
+    <string name="chat_logout">Logout</string>
 
 
 </resources>

@@ -15,6 +15,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 import Common.Common;
 import Model.User;
@@ -22,6 +28,7 @@ import Model.User;
 public class Signin extends AppCompatActivity {
     EditText phone, password;
     Button signin;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,7 @@ public class Signin extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         password = findViewById(R.id.password);
         signin = findViewById(R.id.signin);
+        mAuth = FirebaseAuth.getInstance();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
@@ -63,6 +71,7 @@ public class Signin extends AppCompatActivity {
                                         Toast.makeText(Signin.this, "Welcome "+user.getName(), Toast.LENGTH_SHORT).show();
                                         Common.currentUser = user;
                                         if(phone.getText().toString().equals("01748535404")){
+
                                             Intent homeIntent = new Intent(Signin.this, AdminHome.class);
                                             startActivity(homeIntent);
                                             finish();
