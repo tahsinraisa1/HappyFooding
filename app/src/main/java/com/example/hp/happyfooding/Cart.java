@@ -116,7 +116,7 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(!editAddress.getText().toString().isEmpty()){
-                    new Database(getBaseContext()).cleanCart();
+                 //   new Database(getBaseContext()).cleanCart();
                     //Toast.makeText(Cart.this,"Thank you, order Placed!", Toast.LENGTH_SHORT).show();
                     Intent pay = new Intent(Cart.this, PayPage.class);
                     Bundle bundle = new Bundle();

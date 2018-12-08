@@ -60,7 +60,8 @@ public class AdminHome extends AppCompatActivity
     MaterialSearchBar materialSearchBar;
     View vie;
     LayoutInflater inflater;
-    EditText id, name, price, desc, url, menuid;
+    EditText id, name, price, desc, url, menuid, quan;
+    EditText cprice, cquan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,41 +154,49 @@ public class AdminHome extends AppCompatActivity
                 viewHolder.edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(AdminHome.this);
-                        alertDialog.setTitle("Edit Food");
-                        alertDialog.setMessage("Change Food Price:");
+                        v = inflater.inflate(R.layout.adeditfood, null);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AdminHome.this);
+                        final Dialog alert = builder.create();
+                        builder.setView(v);
 
-                        final EditText editPrice = new EditText(AdminHome.this);
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
-                        );
-                        editPrice.setLayoutParams(lp);
-                        editPrice.setHint("Edit price");
-                        alertDialog.setView(editPrice);
-                        alertDialog.setIcon(R.drawable.ic_edit);
-
-                        alertDialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        final View finalV = v;
+                        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                if(!editPrice.getText().toString().isEmpty()){
+                                cprice = finalV.findViewById(R.id.cp);
+                                cquan = finalV.findViewById(R.id.cq);
+
+                                if(!cprice.getText().toString().isEmpty() && cquan.getText().toString().isEmpty()){
                                     String key = adapter.getRef(position).getKey();
-                                    model.setPrice(editPrice.getText().toString());
+                                    model.setPrice(cprice.getText().toString());
                                     foodList.child(key).setValue(model);
-                                    Toast.makeText(AdminHome.this,"Edit saved", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AdminHome.this,"New price saved.", Toast.LENGTH_SHORT).show();
+                                }
+                                else if(cprice.getText().toString().isEmpty() && !cquan.getText().toString().isEmpty()){
+                                    String key = adapter.getRef(position).getKey();
+                                    model.setQuantity(cquan.getText().toString());
+                                    foodList.child(key).setValue(model);
+                                    Toast.makeText(AdminHome.this,"Quantity changed.", Toast.LENGTH_SHORT).show();
+                                }
+                                else if(!cprice.getText().toString().isEmpty() && !cquan.getText().toString().isEmpty()){
+                                    String key = adapter.getRef(position).getKey();
+                                    model.setPrice(cprice.getText().toString());
+                                    model.setQuantity(cquan.getText().toString());
+                                    foodList.child(key).setValue(model);
+                                    Toast.makeText(AdminHome.this,"Edit saved.", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Toast.makeText(AdminHome.this,"No changes.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-                        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
                             }
                         });
-                        alertDialog.show();
+                        builder.show();
                     }
                 });
                 viewHolder.dlt.setOnClickListener(new View.OnClickListener() {
@@ -249,9 +258,10 @@ public class AdminHome extends AppCompatActivity
                                 desc = finalV.findViewById(R.id.editText3);
                                 url = finalV.findViewById(R.id.editText5);
                                 menuid = finalV.findViewById(R.id.editText4);
+                                quan = finalV.findViewById(R.id.quant);
 
                                 if(!id.getText().toString().isEmpty() && !name.getText().toString().isEmpty() && !url.getText().toString().isEmpty() && !desc.getText().toString().isEmpty() && !price.getText().toString().isEmpty() && !menuid.getText().toString().isEmpty()){
-                                    Food food = new Food(name.getText().toString(),url.getText().toString(),price.getText().toString(),desc.getText().toString(),menuid.getText().toString());
+                                    Food food = new Food(name.getText().toString(),url.getText().toString(),price.getText().toString(),desc.getText().toString(),menuid.getText().toString(), quan.getText().toString());
                                     foodList.child(id.getText().toString()).setValue(food);
                                     Toast.makeText(AdminHome.this,"Food added!", Toast.LENGTH_SHORT).show();
                                 }

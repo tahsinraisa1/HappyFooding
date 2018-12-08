@@ -34,6 +34,7 @@ public class FoodDetail extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference food;
     Food currentFood;
+    int cnt;
 
 
     @Override
@@ -51,16 +52,28 @@ public class FoodDetail extends AppCompatActivity {
         foodimg = findViewById(R.id.img_food);
         btnCart = findViewById(R.id.btnCart);
 
+        if(getIntent() != null)
+            foodId = getIntent().getStringExtra("FoodId");
+        if(!foodId.isEmpty()){
+            getDetailFood(foodId);
+        }
+
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Database(getBaseContext()).addToCart(new Order(
-                        foodId,
-                        currentFood.getName(),
-                        numberButton.getNumber(),
-                        currentFood.getPrice()
-                ));
-                Toast.makeText(FoodDetail.this, "Added to cart.", Toast.LENGTH_SHORT).show();
+                if(Integer.parseInt(numberButton.getNumber()) <= cnt){
+                    new Database(getBaseContext()).addToCart(new Order(
+                            foodId,
+                            currentFood.getName(),
+                            numberButton.getNumber(),
+                            currentFood.getPrice()
+                    ));
+                    cnt -= Integer.parseInt(numberButton.getNumber());
+                    Toast.makeText(FoodDetail.this, "Added to cart.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(FoodDetail.this, "Sorry! Requested quantity not available!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -68,11 +81,7 @@ public class FoodDetail extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
 
-        if(getIntent() != null)
-            foodId = getIntent().getStringExtra("FoodId");
-        if(!foodId.isEmpty()){
-            getDetailFood(foodId);
-        }
+
     }
 
     private void getDetailFood(final String foodId) {
@@ -81,6 +90,7 @@ public class FoodDetail extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 currentFood = dataSnapshot.getValue(Food.class);
                 assert currentFood != null;
+                cnt = Integer.parseInt(currentFood.getQuantity());
                 Picasso.with(getBaseContext()).load(currentFood.getImage()).into(foodimg);
                 collapsingToolbarLayout.setTitle(currentFood.getName());
                 foodprice.setText(currentFood.getPrice());

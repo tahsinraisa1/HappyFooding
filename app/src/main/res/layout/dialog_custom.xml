@@ -20,7 +20,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="291dp"
+        android:layout_height="331dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="64dp"
@@ -72,6 +72,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Demo Image URL"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/quant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Available Quantity"
             android:inputType="textPersonName" />
     </LinearLayout>
 </RelativeLayout>

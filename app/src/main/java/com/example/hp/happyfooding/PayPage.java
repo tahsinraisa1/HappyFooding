@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,14 +14,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.hp.happyfooding.Database.Database;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import Common.Common;
+import Model.Food;
 import Model.Order;
 import Model.Request;
 
@@ -32,6 +38,8 @@ public class PayPage extends AppCompatActivity {
     List<Order> cart = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference requests;
+    DatabaseReference food;
+    Food currentFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,7 @@ public class PayPage extends AppCompatActivity {
         setContentView(R.layout.activity_pay_page);
 
         database = FirebaseDatabase.getInstance();
+        food = database.getReference("Food");
         requests = database.getReference("Requests");
         inflater = PayPage.this.getLayoutInflater();
 
@@ -85,10 +94,38 @@ public class PayPage extends AppCompatActivity {
                                                tprice,
                                                ccart
                                        );
+                                      // Toast.makeText(PayPage.this, ""+ccart.size(), Toast.LENGTH_LONG).show();
                                        requests.child(String.valueOf(System.currentTimeMillis()))
                                                .setValue(request);
+                                       new Database(getBaseContext()).cleanCart();
+                                       for(int i=0;i<ccart.size();i++){
+                                           final String pid = ccart.get(i).getProductId();
+                                           final String quant = ccart.get(i).getQuantity();
+                                           final int[] x = {0};
+                                           food.child(pid).addValueEventListener(new ValueEventListener() {
+                                               @Override
+                                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                   if(x[0] ==0){
+                                                       Food f = dataSnapshot.getValue(Food.class);
+                                                       assert f != null;
+                                                       String qq = f.getQuantity();
+                                                       int min = Integer.parseInt(qq)-Integer.parseInt(quant);
+                                                       f.setQuantity(String.valueOf(min));
+                                                       food.child(pid).child("quantity").setValue(String.valueOf(min));
+                                                       x[0] =1;
+                                                   }
+                                               }
+
+                                               @Override
+                                               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                               }
+                                           });
+                                           // food.child(pid).child("quantity").setValue(String.valueOf(Integer.parseInt(qq)-Integer.parseInt(quant)));
+                                       }
 
                                        Toast.makeText(PayPage.this,"Thanks! Your order will be processed after verification of payment.", Toast.LENGTH_LONG).show();
+
                                    }
                                }
                                else {
@@ -156,6 +193,32 @@ public class PayPage extends AppCompatActivity {
                                         );
                                         requests.child(String.valueOf(System.currentTimeMillis()))
                                                 .setValue(request);
+                                        new Database(getBaseContext()).cleanCart();
+                                        for(int i=0;i<ccart.size();i++){
+                                            final String pid = ccart.get(i).getProductId();
+                                            final String quant = ccart.get(i).getQuantity();
+                                            final int[] x = {0};
+                                            food.child(pid).addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    if(x[0] ==0){
+                                                        Food f = dataSnapshot.getValue(Food.class);
+                                                        assert f != null;
+                                                        String qq = f.getQuantity();
+                                                        int min = Integer.parseInt(qq)-Integer.parseInt(quant);
+                                                        f.setQuantity(String.valueOf(min));
+                                                        food.child(pid).child("quantity").setValue(String.valueOf(min));
+                                                        x[0] =1;
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                }
+                                            });
+                                            // food.child(pid).child("quantity").setValue(String.valueOf(Integer.parseInt(qq)-Integer.parseInt(quant)));
+                                        }
 
                                         Toast.makeText(PayPage.this,"Thanks! Your order will be processed after verification of payment.", Toast.LENGTH_LONG).show();
                                     }
