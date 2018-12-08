@@ -10,7 +10,7 @@ import Interface.ItemClickListener;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView order_id, order_phone, order_status, order_addr, order_name;
+    public TextView order_id, order_phone, order_status, order_addr, order_name, click;
     private ItemClickListener itemClickListener;
 
     public OrderViewHolder(View itemView) {
@@ -21,6 +21,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         order_status = itemView.findViewById(R.id.order_status);
         order_addr = itemView.findViewById(R.id.order_addr);
         order_name = itemView.findViewById(R.id.order_name);
+        click = itemView.findViewById(R.id.order_items1);
 
         itemView.setOnClickListener(this);
     }

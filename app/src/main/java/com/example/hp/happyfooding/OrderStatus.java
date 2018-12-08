@@ -1,5 +1,6 @@
 package com.example.hp.happyfooding;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -55,12 +56,20 @@ public class OrderStatus extends AppCompatActivity {
                 requests.orderByChild("phone").equalTo(phone)
         ) {
             @Override
-            protected void populateViewHolder(OrderViewHolder viewHolder, Request model, int position) {
+            protected void populateViewHolder(OrderViewHolder viewHolder, Request model, final int position) {
                 viewHolder.order_name.setText(model.getName());
                 viewHolder.order_phone.setText(model.getPhone());
                 viewHolder.order_id.setText(adapter.getRef(position).getKey());
                 viewHolder.order_status.setText(convertCodeToStatus(model.getStatus()));
                 viewHolder.order_addr.setText(model.getAddr());
+                viewHolder.click.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(OrderStatus.this, OrderItems.class);
+                        i.putExtra("id", adapter.getRef(position).getKey());
+                        startActivity(i);
+                    }
+                });
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override

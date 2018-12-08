@@ -63,15 +63,6 @@ public class AdminOrderStatus extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                       /* Intent trackingOrder = new Intent(AdminOrderStatus.this, AdminTrackingOrder.class);
-                        Common.currentRequest = model;
-                        startActivity(trackingOrder);*/
-                    }
-                });
-
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
                        Intent i = new Intent(AdminOrderStatus.this, OrderPageAd.class);
                        i.putExtra("id", adapter.getRef(position).getKey());
                        i.putExtra("status", Common.convertCodeToStatus(model.getStatus()));

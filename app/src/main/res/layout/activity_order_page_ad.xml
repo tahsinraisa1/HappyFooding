@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="510dp"
+        android:layout_height="529dp"
         android:layout_gravity="center_vertical"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
@@ -22,21 +22,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="82dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:textSize="20sp"
                     android:text="Order Id:"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_id"
                     android:layout_width="match_parent"
-                    android:layout_height="84dp"
+                    android:layout_height="43dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="#3232323"
@@ -47,21 +47,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:textSize="20sp"
                     android:text="User phone no.:"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="79dp"
+                    android:layout_height="38dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="12434354346"
@@ -73,7 +73,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="84dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -87,7 +87,7 @@
                 <TextView
                     android:id="@+id/order_name"
                     android:layout_width="match_parent"
-                    android:layout_height="87dp"
+                    android:layout_height="38dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="12434354346"
@@ -99,21 +99,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="74dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:textSize="20sp"
                     android:text="Order status:"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_status"
                     android:layout_width="match_parent"
-                    android:layout_height="76dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="5dp"
                     android:text="Status"
@@ -139,13 +139,28 @@
                 <TextView
                     android:id="@+id/order_addr"
                     android:layout_width="match_parent"
-                    android:layout_height="145dp"
+                    android:layout_height="98dp"
                     android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="10dp"
                     android:text="Address"
                     android:textSize="20sp"
                     android:textStyle="italic" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/order_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Click to view ordered items"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

@@ -88,8 +88,9 @@
 
         <activity android:name=".OrderPageAd" />
         <activity android:name=".ChatFragment" />
-        <activity android:name=".AdminChatlist"/>
-        <activity android:name=".AdChatFragment"/>
+        <activity android:name=".AdminChatlist" />
+        <activity android:name=".AdChatFragment" />
+        <activity android:name=".OrderItems"></activity>
     </application>
 
 </manifest>
