@@ -46,18 +46,18 @@ public class AdminChatlist extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<User, UViewHolder>(User.class, R.layout.adchat, UViewHolder.class, users) {
             @Override
             protected void populateViewHolder(UViewHolder viewHolder, final User model, int position) {
-                viewHolder.uname.setText("("+model.getName()+")");
-                viewHolder.uphone.setText(adapter.getRef(position).getKey());
-                TextDrawable drawable = TextDrawable.builder().buildRound("0", Color.RED);
-                viewHolder.count.setImageDrawable(drawable);
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Intent cf = new Intent(AdminChatlist.this, AdChatFragment.class);
-                        cf.putExtra("user", adapter.getRef(position).getKey());
-                        startActivity(cf);
-                    }
-                });
+                    viewHolder.uname.setText("("+model.getName()+")");
+                    viewHolder.uphone.setText(adapter.getRef(position).getKey());
+                    TextDrawable drawable = TextDrawable.builder().buildRound("0", Color.RED);
+                    viewHolder.count.setImageDrawable(drawable);
+                    viewHolder.setItemClickListener(new ItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position, boolean isLongClick) {
+                            Intent cf = new Intent(AdminChatlist.this, AdChatFragment.class);
+                            cf.putExtra("user", adapter.getRef(position).getKey());
+                            startActivity(cf);
+                        }
+                    });
             }
         };
         recyclerView.setAdapter(adapter);

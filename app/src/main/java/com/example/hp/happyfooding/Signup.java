@@ -32,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import Common.Common;
 import Model.User;
@@ -108,6 +110,11 @@ public class Signup extends AppCompatActivity {
                             phone.setError("Please enter a valid phone number!");
                             phone.requestFocus();
                         }
+                        else if(!isEmailValid(addr.getText().toString())){
+                            mDialog.dismiss();
+                            addr.setError("Please enter a valid email address!");
+                            addr.requestFocus();
+                        }
                         else if(pass.getText().toString().length() < 6){
                             mDialog.dismiss();
                             pass.setError("Enter at least 6 characters!");
@@ -166,6 +173,24 @@ public class Signup extends AppCompatActivity {
         });
 
 
+    }
+    public boolean isEmailValid(String email)
+    {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        Pattern pattern = Pattern.compile(regExpn,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+
+        if(matcher.matches())
+            return true;
+        else
+            return false;
     }
 
 

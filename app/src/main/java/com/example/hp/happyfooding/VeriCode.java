@@ -43,6 +43,7 @@ public class VeriCode extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button confirm;
     private EditText vcode;
+    private String TAG;
 
 
     @Override
@@ -55,6 +56,8 @@ public class VeriCode extends AppCompatActivity {
         vcode = findViewById(R.id.code);
 
         String phonenumber = getIntent().getStringExtra("phone");
+        String email = getIntent().getStringExtra("addr");
+        String pass = getIntent().getStringExtra("pass");
 
         sendVerificationCode("+88"+phonenumber);
 
@@ -72,6 +75,22 @@ public class VeriCode extends AppCompatActivity {
                 verifyCode(code);
             }
         });
+        mAuth.createUserWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                           // Log.e(TAG, "createAccount: Success!");
+
+                            // update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                        } else {
+                            Log.e(TAG, "createAccount: Fail!", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
     }
     private void verifyCode(String code){
@@ -91,7 +110,7 @@ public class VeriCode extends AppCompatActivity {
                        String conpass = getIntent().getStringExtra("conpass");
                        FirebaseDatabase database = FirebaseDatabase.getInstance();
                        final DatabaseReference table_user = database.getReference("User");
-                       User user = new User(name, addr, pass, conpass);
+                       User user = new User(name, pass, conpass, addr);
                        table_user.child(phone).setValue(user);
                        Common.currentUser = user;
                        Toast.makeText(VeriCode.this, "Successful registration!"+name, Toast.LENGTH_SHORT).show();
@@ -104,6 +123,7 @@ public class VeriCode extends AppCompatActivity {
                }
            });
     }
+
 
     private void sendVerificationCode(String number){
         PhoneAuthProvider.getInstance().verifyPhoneNumber(

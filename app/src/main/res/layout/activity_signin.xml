@@ -82,16 +82,27 @@
 
     <Button
         android:id="@+id/signin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="134dp"
         android:background="@android:color/holo_red_light"
         android:text="Sign In"
         android:textColor="@android:color/white"
         tools:ignore="ButtonStyle,HardcodedText" />
+
+    <TextView
+        android:id="@+id/fpw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="83dp"
+        android:text="Forgot password?"
+        android:textStyle="bold|italic"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>

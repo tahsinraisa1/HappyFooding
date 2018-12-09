@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/enter_address"
+            android:text="Enter Email"
             android:textColor="@android:color/darker_gray"
             android:textSize="28sp" />
 
@@ -97,7 +97,7 @@
             android:textColor="@android:color/white"
             android:background="@drawable/edittext_bg"
             android:ems="12"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             tools:ignore="LabelFor" />
 
         <TextView

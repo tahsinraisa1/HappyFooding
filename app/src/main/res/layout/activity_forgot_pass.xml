@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".ForgotPass">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="426dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+
+        <TextView
+            android:id="@+id/mtxt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Enter new password"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/mp"
+            android:layout_width="293dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_bg"
+            android:cursorVisible="true"
+            android:ems="12"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/mtxt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Enter registered phone"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/mq"
+            android:layout_width="293dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_bg"
+            android:cursorVisible="true"
+            android:ems="12"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/mtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Enter registered email"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/mt"
+            android:layout_width="293dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_bg"
+            android:cursorVisible="true"
+            android:ems="12"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/em"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="94dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="Send email"
+        android:textColor="@android:color/white"
+        tools:ignore="ButtonStyle,HardcodedText" />
+
+
+
+</RelativeLayout>

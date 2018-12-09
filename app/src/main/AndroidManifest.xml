@@ -90,7 +90,9 @@
         <activity android:name=".ChatFragment" />
         <activity android:name=".AdminChatlist" />
         <activity android:name=".AdChatFragment" />
-        <activity android:name=".OrderItems"></activity>
+        <activity android:name=".OrderItems" />
+        <activity android:name=".ForgotPass" />
+        <activity android:name=".AdminCategories"></activity>
     </application>
 
 </manifest>

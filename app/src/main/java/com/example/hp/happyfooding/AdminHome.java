@@ -1,6 +1,7 @@
 package com.example.hp.happyfooding;
 
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,6 +63,7 @@ public class AdminHome extends AppCompatActivity
     LayoutInflater inflater;
     EditText id, name, price, desc, url, menuid, quan;
     EditText cprice, cquan;
+    EditText c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -342,13 +344,21 @@ public class AdminHome extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.admin_home, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.action_signout:
+                Intent signIn = new Intent(AdminHome.this, Signin.class);
+                signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(signIn);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -359,11 +369,8 @@ public class AdminHome extends AppCompatActivity
 
         if (id == R.id.nav_menu) {
             // Handle the camera action
-        } else if (id == R.id.nav_cart) {
-            Intent cartIntent = new Intent(AdminHome.this, Cart.class);
-            startActivity(cartIntent);
-
-        } else if (id == R.id.ad_order) {
+        }
+        else if (id == R.id.ad_order) {
             Intent orderIntent = new Intent(AdminHome.this, AdminOrderStatus.class);
             startActivity(orderIntent);
 
@@ -374,7 +381,10 @@ public class AdminHome extends AppCompatActivity
             Intent signIn = new Intent(AdminHome.this, Signin.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(signIn);
-
+        }
+        else if(id == R.id.ad_cat){
+            Intent i = new Intent(AdminHome.this, AdminCategories.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
