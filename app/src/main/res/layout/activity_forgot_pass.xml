@@ -14,31 +14,6 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-
-        <TextView
-            android:id="@+id/mtxt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:text="Enter new password"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/mp"
-            android:layout_width="293dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_bg"
-            android:cursorVisible="true"
-            android:ems="12"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:textColor="@android:color/white"
-            tools:ignore="LabelFor" />
-
         <TextView
             android:id="@+id/mtxt2"
             android:layout_width="wrap_content"
@@ -83,6 +58,30 @@
             android:cursorVisible="true"
             android:ems="12"
             android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/mtxt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Enter new password"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/mp"
+            android:layout_width="293dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_bg"
+            android:cursorVisible="true"
+            android:ems="12"
+            android:inputType="textPassword"
             android:singleLine="true"
             android:textColor="@android:color/white"
             tools:ignore="LabelFor" />

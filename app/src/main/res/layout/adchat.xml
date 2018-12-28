@@ -43,7 +43,7 @@
 
                 <TextView
                     android:id="@+id/item_username1"
-                    android:layout_width="201dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:paddingEnd="0dp"
@@ -53,12 +53,6 @@
                     android:text="ghgghhh"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-                <ImageView
-                    android:id="@+id/chatcount"
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical|end"
-                    android:layout_marginEnd="16dp" />
 
             </LinearLayout>
 

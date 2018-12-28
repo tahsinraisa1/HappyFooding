@@ -30,7 +30,7 @@ import ViewHolder.AdOrderViewHolder;
 
 public class OrderPageAd extends AppCompatActivity {
 
-    TextView id, phn, name, stts, addr, items;
+    TextView id, phn, name, stts, addr, items, trx;
     FirebaseDatabase db;
     DatabaseReference requests, f;
     MaterialSpinner spinner;
@@ -53,6 +53,7 @@ public class OrderPageAd extends AppCompatActivity {
         phn = findViewById(R.id.order_phone);
         name = findViewById(R.id.order_name);
         items = findViewById(R.id.order_items);
+        trx = findViewById(R.id.trxid);
 
         loadOrders();
     }
@@ -63,6 +64,7 @@ public class OrderPageAd extends AppCompatActivity {
         stts.setText(getIntent().getStringExtra("status"));
         phn.setText(getIntent().getStringExtra("phn"));
         name.setText(getIntent().getStringExtra("name"));
+        trx.setText(getIntent().getStringExtra("trx"));
 
         items.setOnClickListener(new View.OnClickListener() {
             @Override

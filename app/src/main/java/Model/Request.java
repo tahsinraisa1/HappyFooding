@@ -8,18 +8,20 @@ public class Request {
     private String addr;
     private String total;
     private String status;
+    private String trxid;
     private List<Order> foods;
 
     public Request() {
     }
 
-    public Request(String phone, String name, String addr, String total, List<Order> foods) {
+    public Request(String phone, String name, String addr, String total, List<Order> foods, String trxid) {
         this.phone = phone;
         this.name = name;
         this.addr = addr;
         this.total = total;
         this.foods = foods;
         this.status = "0";
+        this.trxid = trxid;
     }
 
     public String getStatus() {
@@ -52,6 +54,14 @@ public class Request {
 
     public void setAddr(String addr) {
         this.addr = addr;
+    }
+
+    public String getTrxid() {
+        return trxid;
+    }
+
+    public void setTrxid(String trxid) {
+        this.trxid = trxid;
     }
 
     public String getTotal() {

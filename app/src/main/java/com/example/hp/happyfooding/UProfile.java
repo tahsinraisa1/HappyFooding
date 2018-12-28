@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.happyfooding.Database.Database;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -258,6 +259,7 @@ public class UProfile extends AppCompatActivity
             startActivity(chat);
 
         } else if (id == R.id.nav_signout) {
+            new Database(getBaseContext()).cleanCart();
             Intent signIn = new Intent(UProfile.this, Signin.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(signIn);

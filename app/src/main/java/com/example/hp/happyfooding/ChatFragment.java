@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.util.Date;
 
@@ -108,6 +110,15 @@ public class ChatFragment extends AppCompatActivity {
                 }
             });
 
+    }
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle().equals("Delete")){
+            deleteChat(mAdapter.getRef(item.getOrder()).getKey());
+        }
+        return super.onContextItemSelected(item);
+    }
+    private void deleteChat(String key) {
+        mReference.child(key).removeValue();
     }
 
 }

@@ -1,7 +1,9 @@
 package ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,7 +11,7 @@ import com.example.hp.happyfooding.R;
 
 import Interface.ItemClickListener;
 
-public class ChatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class ChatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
     public TextView name;
     public TextView phone;
     public TextView message;
@@ -28,11 +30,15 @@ public class ChatViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         message = view.findViewById(R.id.item_message);
 
         itemView.setOnClickListener(this);
+        itemView.setOnCreateContextMenuListener(this);
     }
 
     @Override
     public void onClick(View view) {
         itemClickListener.onClick(view, getAdapterPosition(),false);
 
+    }
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.add(0,0, getAdapterPosition(), "Delete");
     }
 }

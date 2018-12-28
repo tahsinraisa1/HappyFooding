@@ -11,7 +11,6 @@ import Interface.ItemClickListener;
 
 public class UViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView uphone, uname;
-    public ImageView count;
     private ItemClickListener itemClickListener;
 
     public UViewHolder(View itemView) {
@@ -19,7 +18,6 @@ public class UViewHolder extends RecyclerView.ViewHolder implements View.OnClick
 
         uphone = itemView.findViewById(R.id.item_userphone1);
         uname = itemView.findViewById(R.id.item_username1);
-        count = itemView.findViewById(R.id.chatcount);
 
         itemView.setOnClickListener(this);
     }

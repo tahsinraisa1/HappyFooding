@@ -92,7 +92,8 @@ public class PayPage extends AppCompatActivity {
                                                Common.currentUser.getName(),
                                                addr,
                                                tprice,
-                                               ccart
+                                               ccart,
+                                               tid.getText().toString()
                                        );
                                       // Toast.makeText(PayPage.this, ""+ccart.size(), Toast.LENGTH_LONG).show();
                                        requests.child(String.valueOf(System.currentTimeMillis()))
@@ -189,7 +190,8 @@ public class PayPage extends AppCompatActivity {
                                                 Common.currentUser.getName(),
                                                 addr,
                                                 tprice,
-                                                ccart
+                                                ccart,
+                                                tid.getText().toString()
                                         );
                                         requests.child(String.valueOf(System.currentTimeMillis()))
                                                 .setValue(request);

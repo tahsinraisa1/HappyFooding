@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,7 +27,7 @@ public class AdChatFragment extends AppCompatActivity {
 
     /** Database instance **/
     private DatabaseReference mReference;
-    private DatabaseReference mR;
+    private DatabaseReference mR, mRR;
 
     /** UI Components **/
     private EditText mChatInput;
@@ -109,6 +110,15 @@ public class AdChatFragment extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle().equals("Delete")){
+            deleteChat(mAdapter.getRef(item.getOrder()).getKey());
+        }
+        return super.onContextItemSelected(item);
+    }
+    private void deleteChat(String key) {
+        mR.child(key).removeValue();
     }
 
 }

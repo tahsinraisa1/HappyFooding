@@ -69,6 +69,7 @@ public class AdminOrderStatus extends AppCompatActivity {
                        i.putExtra("addr", model.getAddr());
                        i.putExtra("phn", model.getPhone());
                        i.putExtra("name", model.getName());
+                       i.putExtra("trx", model.getTrxid());
                        startActivity(i);
                     }
                 });
