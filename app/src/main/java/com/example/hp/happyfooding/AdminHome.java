@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.happyfooding.Database.Database;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -349,16 +350,7 @@ public class AdminHome extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.action_signout:
-                Intent signIn = new Intent(AdminHome.this, Signin.class);
-                signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(signIn);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -383,7 +375,8 @@ public class AdminHome extends AppCompatActivity
         } else if(id == R.id.nav_adchat){
             Intent cl = new Intent(AdminHome.this, AdminChatlist.class);
             startActivity(cl);
-        } else if (id == R.id.nav_signout) {
+        } else if (id == R.id.navv_signout) {
+            new Database(getBaseContext()).cleanCart();
             Intent signIn = new Intent(AdminHome.this, Signin.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(signIn);

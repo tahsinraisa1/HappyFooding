@@ -27,6 +27,12 @@
             android:id="@+id/ad_menu"
             android:icon="@drawable/ic_edit_black_24dp"
             android:title="Change Password" />
+        <item
+            android:id="@+id/navv_signout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:iconTint="@android:color/white"
+            android:title="Sign out"
+            tools:ignore="UnusedAttribute" />
 
     </group>
 
