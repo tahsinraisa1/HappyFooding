@@ -75,7 +75,7 @@ public class Signin extends AppCompatActivity {
                                         throw new AssertionError();
                                     }
                                     if (user.getPassword().equals(password.getText().toString())) {
-                                        Toast.makeText(Signin.this, "Welcome "+user.getName(), Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(Signin.this, "Welcome "+user.getName(), Toast.LENGTH_SHORT).show();
                                         Common.currentUser = user;
                                         if(phone.getText().toString().equals("01748535404")){
                                             Intent homeIntent = new Intent(Signin.this, AdminHome.class);

@@ -5,6 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/adnav_cart"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:iconTint="@android:color/white"
+            android:title="Admin's Cart"
+            tools:ignore="UnusedAttribute"
+            />
+        <item
             android:id="@+id/ad_order"
             android:icon="@drawable/ic_access_time_black_24dp"
             android:title="Orders" />
@@ -16,6 +23,10 @@
             android:id="@+id/ad_cat"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"
             android:title="Categories" />
+        <item
+            android:id="@+id/ad_menu"
+            android:icon="@drawable/ic_edit_black_24dp"
+            android:title="Change Password" />
 
     </group>
 

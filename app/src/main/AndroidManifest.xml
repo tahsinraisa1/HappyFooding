@@ -17,6 +17,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -71,9 +72,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".AdminTrackingOrder"
-            android:label="@string/title_activity_admin_tracking_order" />
         <activity android:name=".PayPage" />
 
         <receiver
@@ -96,7 +94,8 @@
         <activity android:name=".AdChatFragment" />
         <activity android:name=".OrderItems" />
         <activity android:name=".ForgotPass" />
-        <activity android:name=".AdminCategories"></activity>
+        <activity android:name=".AdminCategories" />
+        <activity android:name=".ChangePass"></activity>
     </application>
 
 </manifest>

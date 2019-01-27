@@ -39,6 +39,6 @@ public class ChatViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     }
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        menu.add(0,0, getAdapterPosition(), "Delete");
+        menu.add(0,0, getAdapterPosition(), "Delete for everyone");
     }
 }

@@ -72,7 +72,12 @@ public class AdChatFragment extends AppCompatActivity {
                 viewHolder.phone.setText(model.getId());
                 viewHolder.date.setText(model.getDate());
                 viewHolder.message.setText(model.getMessage());
-                viewHolder.name.setText("("+model.getName()+")");
+                if(model.getId().equals(mUserId)){
+                    viewHolder.name.setText("(You)");
+                }
+                else {
+                    viewHolder.name.setText("("+model.getName()+")");
+                }
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -112,7 +117,7 @@ public class AdChatFragment extends AppCompatActivity {
 
     }
     public boolean onContextItemSelected(MenuItem item) {
-        if(item.getTitle().equals("Delete")){
+        if(item.getTitle().equals("Delete for everyone")){
             deleteChat(mAdapter.getRef(item.getOrder()).getKey());
         }
         return super.onContextItemSelected(item);

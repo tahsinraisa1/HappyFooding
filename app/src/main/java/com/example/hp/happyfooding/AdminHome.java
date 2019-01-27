@@ -367,8 +367,14 @@ public class AdminHome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_menu) {
-            // Handle the camera action
+        if (id == R.id.ad_menu) {
+            Intent cp = new Intent(AdminHome.this, ChangePass.class);
+            startActivity(cp);
+        }
+        else if (id == R.id.adnav_cart) {
+            Intent cartIntent = new Intent(AdminHome.this, Cart.class);
+            startActivity(cartIntent);
+
         }
         else if (id == R.id.ad_order) {
             Intent orderIntent = new Intent(AdminHome.this, AdminOrderStatus.class);

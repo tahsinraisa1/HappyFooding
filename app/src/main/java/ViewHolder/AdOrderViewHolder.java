@@ -13,7 +13,7 @@ import Interface.ItemClickListener;
 
 public class AdOrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
 
-    public TextView order_id, order_phone, order_status, order_addr, order_name, getloc;
+    public TextView order_id, order_phone, order_status, order_addr, order_name, click;
     private ItemClickListener itemClickListener;
 
     public AdOrderViewHolder(View itemView) {
@@ -24,7 +24,7 @@ public class AdOrderViewHolder extends RecyclerView.ViewHolder implements View.O
         order_status = itemView.findViewById(R.id.order_status);
         order_addr = itemView.findViewById(R.id.order_addr);
         order_name = itemView.findViewById(R.id.order_name);
-      //  getloc = itemView.findViewById(R.id.getloc);
+        click = itemView.findViewById(R.id.clickk);
 
         itemView.setOnClickListener(this);
         itemView.setOnCreateContextMenuListener(this);

@@ -244,7 +244,8 @@ public class UProfile extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+            Intent cp = new Intent(UProfile.this, ChangePass.class);
+            startActivity(cp);
         } else if (id == R.id.nav_cart) {
             Intent cartIntent = new Intent(UProfile.this, Cart.class);
             startActivity(cartIntent);

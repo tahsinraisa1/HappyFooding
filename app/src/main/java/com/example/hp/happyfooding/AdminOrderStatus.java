@@ -1,18 +1,31 @@
 package com.example.hp.happyfooding;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Parcelable;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Toast;
+import android.location.Location;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -21,7 +34,6 @@ import Common.Common;
 import Interface.ItemClickListener;
 import Model.Request;
 import ViewHolder.AdOrderViewHolder;
-import ViewHolder.OrderViewHolder;
 
 public class AdminOrderStatus extends AppCompatActivity {
 
@@ -49,6 +61,7 @@ public class AdminOrderStatus extends AppCompatActivity {
         loadOrders();
     }
 
+
     private void loadOrders() {
         adapter = new FirebaseRecyclerAdapter<Request, AdOrderViewHolder>(
                 Request.class,
@@ -57,20 +70,26 @@ public class AdminOrderStatus extends AppCompatActivity {
                 requests
         ) {
             @Override
-            protected void populateViewHolder(AdOrderViewHolder viewHolder, final Request model, int position) {
+            protected void populateViewHolder(AdOrderViewHolder viewHolder, final Request model, final int position) {
                 viewHolder.order_id.setText(adapter.getRef(position).getKey());
-
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                       Intent i = new Intent(AdminOrderStatus.this, OrderPageAd.class);
-                       i.putExtra("id", adapter.getRef(position).getKey());
-                       i.putExtra("status", Common.convertCodeToStatus(model.getStatus()));
-                       i.putExtra("addr", model.getAddr());
-                       i.putExtra("phn", model.getPhone());
-                       i.putExtra("name", model.getName());
-                       i.putExtra("trx", model.getTrxid());
-                       startActivity(i);
+
+                    }
+                });
+
+                viewHolder.click.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(AdminOrderStatus.this, OrderPageAd.class);
+                        i.putExtra("id", adapter.getRef(position).getKey());
+                        i.putExtra("status", Common.convertCodeToStatus(model.getStatus()));
+                        i.putExtra("addr", model.getAddr());
+                        i.putExtra("phn", model.getPhone());
+                        i.putExtra("name", model.getName());
+                        i.putExtra("trx", model.getTrxid());
+                        startActivity(i);
                     }
                 });
             }
@@ -126,4 +145,5 @@ public class AdminOrderStatus extends AppCompatActivity {
         alertDialog.show();
 
     }
+
 }
